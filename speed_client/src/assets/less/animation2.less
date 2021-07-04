@@ -1,0 +1,356 @@
+
+//旋转折叠动画
+@keyframes iFold
+{
+    0% {transform: rotate(0deg);}
+    100% {transform:rotate(-90deg);}
+}
+
+@-moz-keyframes iFold /* Firefox */
+{
+    0% {transform: rotate(0deg);}
+    100% {transform:rotate(-90deg);}
+}
+
+@-webkit-keyframes iFold /* Safari 和 Chrome */
+{
+    0% {transform: rotate(0deg);}
+    100% {transform:rotate(-90deg);}
+}
+
+@-o-keyframes iFold /* Opera */
+{
+    0% {transform: rotate(0deg);}
+    100% {transform:rotate(-90deg);}
+}
+
+.fold {
+    animation: iFold 0.2s forwards;
+    -moz-animation: iFold 0.2s forwards;	/* Firefox */
+    -webkit-animation: iFold 0.2s forwards;	/* Safari 和 Chrome */
+    -o-animation: iFold 0.2s forwards;
+}
+
+//恢复旋转折叠动画
+@keyframes iUnFold
+{
+    100% {transform: rotate(0deg);}
+    0% {transform:rotate(-90deg);}
+}
+
+@-moz-keyframes iUnFold /* Firefox */
+{
+    100% {transform: rotate(0deg);}
+    0% {transform:rotate(-90deg);}
+}
+
+@-webkit-keyframes iUnFold /* Safari 和 Chrome */
+{
+    100% {transform: rotate(0deg);}
+    0% {transform:rotate(-90deg);}
+}
+
+@-o-keyframes iUnFold /* Opera */
+{
+    100% {transform: rotate(0deg);}
+    0% {transform:rotate(-90deg);}
+}
+
+.unfold {
+    animation: iUnFold 0.2s;
+    -moz-animation: iUnFold 0.2s;	/* Firefox */
+    -webkit-animation: iUnFold 0.2s;	/* Safari 和 Chrome */
+    -o-animation: iUnFold 0.2s;
+}
+
+
+//旋转动画
+@keyframes iRotate
+{
+    0% {transform: rotate(-5deg);}
+    100% {transform:rotate(5deg);}
+}
+
+@-moz-keyframes iRotate /* Firefox */
+{
+    0% {transform: rotate(-5deg);}
+    100% {transform:rotate(5deg);}
+}
+
+@-webkit-keyframes iRotate /* Safari 和 Chrome */
+{
+    0% {transform: rotate(-5deg);}
+    100% {transform:rotate(5deg);}
+}
+
+@-o-keyframes iRotate /* Opera */
+{
+    0% {transform: rotate(-5deg);}
+    100% {transform:rotate(5deg);}
+}
+
+.rotate {
+    animation: iRotate 0.2s ease-out infinite alternate;
+    -moz-animation: iRotate 0.2s ease-out infinite alternate;	/* Firefox */
+    -webkit-animation: iRotate 0.2s ease-out infinite alternate;	/* Safari 和 Chrome */
+    -o-animation: iRotate 0.2s ease-out infinite alternate;
+}
+
+
+//旋转180
+@keyframes iRotate180
+{
+    0% {transform: rotate(0deg);}
+    100% {transform:rotate(-180deg);}
+}
+
+@-moz-keyframes iRotate180 /* Firefox */
+{
+    0% {transform: rotate(0deg);}
+    100% {transform:rotate(-180deg);}
+}
+
+@-webkit-keyframes iRotate180 /* Safari 和 Chrome */
+{
+    0% {transform: rotate(0deg);}
+    100% {transform:rotate(-180deg);}
+}
+
+@-o-keyframes iRotate180 /* Opera */
+{
+    0% {transform: rotate(0deg);}
+    100% {transform:rotate(-180deg);}
+}
+
+.rotate180-animation {
+    animation: iRotate180 0.2s linear forwards;
+    -moz-animation: iRotate180 0.2s linear forwards;	/* Firefox */
+    -webkit-animation: iRotate180 0.2s linear forwards;	/* Safari 和 Chrome */
+    -o-animation: iRotate180 0.2s linear forwards;
+}
+
+
+
+
+
+
+//缩放
+@keyframes iZoom
+{
+    0% {transform: scale(0.98);}
+    100% {transform:scale(1.02);}
+}
+
+@-moz-keyframes iZoom /* Firefox */
+{
+    0% {transform: scale(0.98);}
+    100% {transform:scale(1.02);}
+}
+
+@-webkit-keyframes iZoom /* Safari 和 Chrome */
+{
+    0% {transform: scale(0.98);}
+    100% {transform:scale(1.02);}
+}
+
+@-o-keyframes iZoom /* Opera */
+{
+    0% {transform: scale(0.98);}
+    100% {transform:scale(1.02);}
+}
+
+.zoom {
+    animation: iZoom 0.8s ease-out infinite alternate;
+    -moz-animation: iZoom 0.8s ease-out infinite alternate;	/* Firefox */
+    -webkit-animation: iZoom 0.8s ease-out infinite alternate;	/* Safari 和 Chrome */
+    -o-animation: iZoom 0.8s ease-out infinite alternate;
+}
+
+//闪光
+@keyframes iShine
+{
+    0% {opacity: 0.5;}
+    100% {opacity: 1;}
+}
+
+@-moz-keyframes iShine /* Firefox */
+{
+    0% {opacity: 0.5;}
+    100% {opacity: 1;}
+}
+
+@-webkit-keyframes iShine /* Safari 和 Chrome */
+{
+    0% {opacity: 0.5;}
+    100% {opacity: 1;}
+}
+
+@-o-keyframes iShine /* Opera */
+{
+    0% {opacity: 0.5;}
+    100% {opacity: 1;}
+}
+
+.shine {
+    animation: iShine 1s linear infinite alternate;
+    -moz-animation: iShine 1s linear infinite alternate;	/* Firefox */
+    -webkit-animation: iShine 1s linear infinite alternate;	/* Safari 和 Chrome */
+    -o-animation: iShine 1s linear infinite alternate;
+}
+
+
+/*弹层动画（从下往上）*/
+.fadeInBottom {
+    -webkit-animation: fadeInBottom .3s;
+    animation: fadeInBottom .3s;
+}
+.fadeOutBottom {
+    -webkit-animation: fadeOutBottom .3s forwards;
+    animation: fadeOutBottom .3s forwards;
+}
+
+@keyframes fadeInBottom {
+    0% {
+        -webkit-transform: translate3d(0, 100%, 0);
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+    100% {
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@-webkit-keyframes fadeInBottom {
+    0% {
+        -webkit-transform: translate3d(0, 100%, 0);
+    }
+    100% {
+        -webkit-transform: none;
+    }
+}
+
+@keyframes fadeOutBottom {
+    0% {
+        -webkit-transform: none;
+        transform: none;
+    }
+    100% {
+        -webkit-transform: translate3d(0, 100%, 0);
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+}
+
+@-webkit-keyframes fadeOutBottom {
+    0% {
+        -webkit-transform: none;
+    }
+    100% {
+        -webkit-transform: translate3d(0, 100%, 0);
+    }
+}
+
+
+/*淡入淡出（透明度）*/
+.fadeIn {
+    -webkit-animation: fadeIn .3s;
+    animation: fadeIn .3s;
+}
+.fadeOut {
+    -webkit-animation: fadeOut .3s forwards;
+    animation: fadeOut .3s forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut{
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes fadeOutBottom {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/*弹层动画（从下往上）*/
+.popupIn {
+    -webkit-animation: popupIn .3s;
+    animation: popupIn .3s;
+}
+.popupOut {
+    -webkit-animation: popupOut .3s forwards;
+    animation: popupOut .3s forwards;
+}
+
+@keyframes popupIn {
+    0% {
+        -webkit-transform: scale(0.1);
+        transform: scale(0.1);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@-webkit-keyframes popupIn {
+    0% {
+        -webkit-transform: scale(0.1);
+        transform: scale(0.1);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes popupOut {
+    0% {
+        -webkit-transform: none;
+        transform: none;
+    }
+    100% {
+        -webkit-transform: translate3d(0, 100%, 0);
+        -webkit-transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+        transform: translate3d(0, 100%, 0);
+    }
+}
+
+@-webkit-keyframes popupOut {
+    0% {
+        -webkit-transform: none;
+    }
+    100% {
+        -webkit-transform: translate3d(0, 100%, 0);
+    }
+}

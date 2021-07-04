@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxt.dataspeed.mapper.PlayerMapper">
+
+
+    <!-- Player玩家 -->
+
+    <insert id="savePlayer" parameterType="Player">
+        <selectKey keyProperty="id" resultType="java.lang.Double" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+        insert into player (name,team_id,is_pro) values (#{name},#{teamId},#{isPro});
+    </insert>
+
+    <delete id="deletePlayer">
+        delete from player where id=#{id}
+    </delete>
+
+    <update id="updatePlayer" parameterType="Player">
+        update player set name=#{name},team_id=#{teamId},is_pro=#{isPro} where id=#{id}
+    </update>
+
+    <select id="listPlayers" resultType="Player">
+        select * from player;
+    </select>
+
+    <select id="listPlayersByParams" resultType="Player">
+        select distinct p.id as player_id,p.* from player p right join record r on p.id = r.player_id
+        <where>
+            <if test="type != 'all'">
+                and r.type =#{type}
+            </if>
+
+            <if test="pet != 'all'">
+                <if test="pet == 'withPet'">
+                    and r.pet_id is not null
+                </if>
+                <if test="pet == 'withOutPet'">
+                    and r.pet_id is null
+                </if>
+            </if>
+
+            <if test="ecu != 'all'">
+                <if test="ecu == 'withEcu'">
+                    and r.ecu_id is not null
+                </if>
+                <if test="pet == 'withOutEcu'">
+                    and r.ecu_id is null
+                </if>
+            </if>
+        </where>
+    </select>
+
+    <select id="listPlayersByTeamId" resultType="Player">
+        select * from player where team_id=#{teamId};
+    </select>
+
+    <select id="getPlayerById" resultType="Player">
+        select * from player where id = #{id};
+    </select>
+
+    <update id="increasePlayerPower">
+        update player set power=power+1 where id=#{id}
+    </update>
+
+
+    <!-- Team车队 -->
+
+    <insert id="saveTeam" parameterType="Team">
+        <selectKey keyProperty="id" resultType="java.lang.Integer" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+        insert into team (name,is_pro) values (#{name},#{isPro});
+    </insert>
+
+    <delete id="deleteTeam">
+        delete from team where id=#{id}
+    </delete>
+
+    <update id="updateTeam" parameterType="Team">
+        update team set name=#{name},is_pro=#{isPro} where id=#{id}
+    </update>
+
+    <select id="listTeams" resultType="Team">
+        select * from team;
+    </select>
+
+    <select id="getTeamById" resultType="Team">
+        select * from team where id = #{id};
+    </select>
+
+    <!-- select * from player p left join team t on p.team_id = t.team_id where id = #{playerId}; -->
+    <select id="getTeamByPlayerId" resultType="Team">
+        select * from team where id in (select team_id from player where id = #{playerId});
+    </select>
+
+
+    <update id="increaseTeamPower">
+        update team set power=power+1 where id=#{id}
+    </update>
+    
+</mapper>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxt.dataspeed.mapper.TrackMapper">
+
+    <insert id="saveTrack" parameterType="Track">
+        <selectKey keyProperty="id" resultType="java.lang.Integer" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+
+        insert into track (name,stars,is_new,is_league,is_sea,is_old,date) values (#{name},#{stars},#{isNew},#{isLeague},#{isSea},#{isOld},#{date});
+    </insert>
+
+    <delete id="deleteTrack">
+        delete from track where id=#{id}
+    </delete>
+
+    <update id="updateTrack" parameterType="Track">
+        update track set name=#{name},stars=#{stars},is_league=#{isLeague},is_sea=#{isSea},is_old=#{isOld},is_new=#{isNew},date=#{date} where id=#{id}
+    </update>
+
+    <select id="listTracks" resultType="Track">
+        select * from track;
+    </select>
+    <select id="listTracksByParams" resultType="Track">
+        select distinct t.id as track_id,t.* from track t right join record r on t.id = r.track_id
+        <where>
+            <if test="type != 'all'">
+                and r.type =#{type}
+            </if>
+
+            <if test="pet != 'all'">
+                <if test="pet == 'withPet'">
+                    and r.pet_id is not null
+                </if>
+                <if test="pet == 'withOutPet'">
+                    and r.pet_id is null
+                </if>
+            </if>
+
+            <if test="ecu != 'all'">
+                <if test="ecu == 'withEcu'">
+                    and r.ecu_id is not null
+                </if>
+                <if test="pet == 'withOutEcu'">
+                    and r.ecu_id is null
+                </if>
+            </if>
+        </where>
+    </select>
+
+    <select id="getTrackById" resultType="Track">
+        select * from track where id = #{id};
+    </select>
+
+    <update id="increaseTrackPower">
+        update track set power=power+1 where id=#{id}
+    </update>
+
+</mapper>

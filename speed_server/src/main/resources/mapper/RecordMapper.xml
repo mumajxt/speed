@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxt.dataspeed.mapper.RecordMapper">
+
+    <insert id="saveRecord" parameterType="Record">
+        <selectKey keyProperty="id" resultType="java.lang.Double" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+        insert into record (type,track_id,player_id,car_id,car_skin_id,pet_id,pet_skin_id,ecu_id,time_second,time_millisecond,date,video_url,shadow_url,update_time,update_admin_id,comment) values (#{type},#{trackId},#{playerId},#{carId},#{carSkinId},#{petId},#{petSkinId},#{ecuId},#{timeSecond},#{timeMillisecond},#{date},#{videoUrl},#{shadowUrl},#{updateTime},#{updateAdminId},#{comment});
+    </insert>
+
+    <delete id="deleteRecord">
+        delete from record where id=#{id}
+    </delete>
+
+    <update id="updateRecord" parameterType="Record">
+
+        update record set
+                          type=#{type},
+                          track_id=#{trackId},
+                          player_id=#{playerId},
+                          car_id=#{carId},
+                          car_skin_id=#{carSkinId},
+                          pet_id=#{petId},
+                          pet_skin_id=#{petSkinId},
+                          ecu_id=#{ecuId},
+                          time_second=#{timeSecond},
+                          time_millisecond=#{timeMillisecond},
+                          date=#{date},
+                          shadow_url=#{shadowUrl},
+                          video_url=#{videoUrl},
+                          update_time=#{updateTime},
+                          update_admin_id=#{updateAdminId},
+                          comment=#{comment}
+        where id=#{id}
+    </update>
+
+    <select id="listRecords" resultType="Record">
+        select * from record;
+    </select>
+
+
+
+    <select id="listRecordsByParams" resultType="Record">
+        SELECT r.* FROM (SELECT * FROM record
+        <where>
+            <if test="type != 'all'">
+                type =#{type}
+            </if>
+            <if test="pet != 'all'">
+                <if test="pet == 'withPet'">
+                    and pet_id is not null
+                </if>
+                <if test="pet == 'withOutPet'">
+                    and pet_id is null
+                </if>
+            </if>
+
+            <if test="ecu != 'all'">
+                <if test="ecu == 'withEcu'">
+                    and ecu_id is not null
+                </if>
+                <if test="ecu == 'withOutEcu'">
+                    and ecu_id is null
+                </if>
+            </if>
+        </where>
+        ORDER BY time_second,time_millisecond,date limit 100000000000) r
+        GROUP BY r.track_id
+
+    </select>
+
+     <!--<select id="listRecordsByParams" resultType="Record">
+        SELECT * FROM record
+        <where>
+            <if test="type != 'all'">
+                type =#{type}
+            </if>
+            <if test="pet != 'all'">
+                <if test="pet == 'withPet'">
+                    and pet_id is not null
+                </if>
+                <if test="pet == 'withOutPet'">
+                    and pet_id is null
+                </if>
+            </if>
+
+            <if test="ecu != 'all'">
+                <if test="ecu == 'withEcu'">
+                    and ecu_id is not null
+                </if>
+                <if test="ecu == 'withOutEcu'">
+                    and ecu_id is null
+                </if>
+            </if>
+        </where>
+        ORDER BY time_second,time_millisecond,date
+        GROUP BY track_id
+
+    </select>-->
+    <select id="getRecordById" resultType="Record">
+        select * from record where id = #{id};
+    </select>
+
+    <select id="getTotalCount" resultType="java.lang.Integer">
+        select count(*) from (select r.*,p.name as playerName,t.name as trackName,c.name as carName,pet.name as petName from record r
+        left join player p on r.player_id=p.id
+        left join track t on r.track_id=t.id
+        left join car c on r.car_id=c.id
+        left join pet pet on r.pet_id=pet.id
+            where (p.name like "%"#{searchKey}"%"
+              or t.name like  "%"#{searchKey}"%"
+                or c.name like  "%"#{searchKey}"%"
+                    or pet.name like  "%"#{searchKey}"%"
+                        or r.id like  "%"#{searchKey}"%")
+
+                <if test="type != 'all'">
+                    and type =#{type}
+                </if>
+
+                <if test="pet != 'all'">
+                    <if test="pet == 'withPet'">
+                        and pet_id is not null
+                    </if>
+                    <if test="pet == 'withOutPet'">
+                        and pet_id is null
+                    </if>
+                </if>
+
+                <if test="ecu != 'all'">
+                    <if test="ecu == 'withEcu'">
+                        and ecu_id is not null
+                    </if>
+                    <if test="ecu == 'withOutEcu'">
+                        and ecu_id is null
+                    </if>
+                </if>
+
+                <if test="trackId != null">
+                   and track_id =#{trackId}
+                </if>
+                <if test="playerId != null">
+                    and player_id =#{playerId}
+                </if>
+                <if test="carId != null">
+                    and car_id =#{carId}
+                </if>
+            ) r2 ;
+    </select>
+
+
+    <select id="listRecentRecordsByParams" resultType="Record">
+        select r.*,
+               p.name as playerName,
+               t.name as trackName,
+               c.name as carName,
+               pet.name as petName
+        from record r
+            left join player p on r.player_id=p.id
+            left join track t on r.track_id=t.id
+            left join car c on r.car_id=c.id
+            left join pet on r.pet_id=pet.id
+
+        <where>
+            <if test="type != 'all'">
+                type =#{type}
+            </if>
+
+            <if test="pet != 'all'">
+                <if test="pet == 'withPet'">
+                    and pet_id is not null
+                </if>
+                <if test="pet == 'withOutPet'">
+                    and pet_id is null
+                </if>
+            </if>
+
+            <if test="ecu != 'all'">
+                <if test="ecu == 'withEcu'">
+                    and ecu_id is not null
+                </if>
+                <if test="ecu == 'withOutEcu'">
+                    and ecu_id is null
+                </if>
+            </if>
+
+            <if test="trackId != null">
+                and track_id =#{trackId}
+            </if>
+            <if test="playerId != null">
+                and player_id =#{playerId}
+            </if>
+            <if test="carId != null">
+                and car_id =#{carId}
+            </if>
+
+            <if test="searchKey != '' ">
+                and (p.name like "%"#{searchKey}"%"
+                or t.name like  "%"#{searchKey}"%"
+                or c.name like  "%"#{searchKey}"%"
+                or pet.name like  "%"#{searchKey}"%"
+                or r.id like  "%"#{searchKey}"%")
+            </if>
+        </where>
+
+        <if test="orderBy != null">
+            <if test="orderBy=='timeUp'">
+                ORDER BY time_second desc,time_millisecond desc,date desc
+            </if>
+            <if test="orderBy=='timeDown'">
+                ORDER BY time_second,time_millisecond,date
+            </if>
+            <if test="orderBy=='dateUp'">
+                ORDER BY date
+            </if>
+            <if test="orderBy=='dateDown'">
+                ORDER BY date desc
+            </if>
+            <if test="orderBy=='idUp'">
+                ORDER BY id
+            </if>
+            <if test="orderBy=='idDown'">
+                ORDER BY id desc
+            </if>
+        </if>
+
+            limit #{start},#{size};
+    </select>
+</mapper>

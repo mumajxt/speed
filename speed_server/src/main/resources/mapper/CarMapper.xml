@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxt.dataspeed.mapper.CarMapper">
+
+
+    <!-- Car赛车 -->
+
+    <insert id="saveCar" parameterType="Car">
+        <selectKey keyProperty="id" resultType="java.lang.Integer" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+        insert into car (name,`rank`) values (#{name},#{rank});
+    </insert>
+
+    <delete id="deleteCar">
+        delete from car where id=#{id}
+    </delete>
+
+    <update id="updateCar" parameterType="Car">
+        update car set name=#{name},rank=#{rank} where id=#{id}
+    </update>
+
+    <select id="listCars" resultType="Car">
+        select * from car;
+    </select>
+
+    <select id="listCarsByParams" resultType="Car">
+        select distinct c.id as car_id,c.* from car c right join record r on c.id = r.car_id
+        <where>
+            <if test="type != 'all'">
+                and r.type =#{type}
+            </if>
+
+            <if test="pet != 'all'">
+                <if test="pet == 'withPet'">
+                    and r.pet_id is not null
+                </if>
+                <if test="pet == 'withOutPet'">
+                    and r.pet_id is null
+                </if>
+            </if>
+
+            <if test="ecu != 'all'">
+                <if test="ecu == 'withEcu'">
+                    and r.ecu_id is not null
+                </if>
+                <if test="pet == 'withOutEcu'">
+                    and r.ecu_id is null
+                </if>
+            </if>
+        </where>
+    </select>
+
+    <select id="listCarsByCarRank" resultType="Car" >
+        select * from car where rank = #{rank};
+    </select>
+
+    <select id="getCarById" resultType="Car">
+        select * from car where id = #{id};
+    </select>
+
+    <update id="increaseCarPower">
+        update car set power=power+1 where id=#{id}
+    </update>
+
+
+    <!-- CarSkin赛车皮肤 -->
+
+    <insert id="saveCarSkin" parameterType="CarSkin">
+        <selectKey keyProperty="id" resultType="java.lang.Integer" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+        insert into car_skin (name,car_id) values (#{name},#{carId});
+    </insert>
+
+    <delete id="deleteCarSkin">
+        delete from car_skin where id=#{id}
+    </delete>
+
+    <update id="updateCarSkin" parameterType="CarSkin">
+        update car_skin set name=#{name},car_id=#{carId} where id=#{id}
+    </update>
+
+    <select id="listCarSkins" resultType="CarSkin">
+        select * from car_skin;
+    </select>
+
+    <select id="listCarSkinsByCarId" resultType="CarSkin">
+        select * from car_skin where car_id=#{carId};
+    </select>
+
+    <select id="getCarSkinById" resultType="CarSkin">
+        select * from car_skin where id = #{id};
+    </select>
+
+    <update id="increaseCarSkinPower">
+        update car_skin set power=power+1 where id=#{id}
+    </update>
+
+
+    <!-- ECU -->
+
+    <insert id="saveEcu" parameterType="Ecu">
+        <selectKey keyProperty="id" resultType="java.lang.Integer" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+        insert into ecu (name) values (#{name});
+    </insert>
+
+    <delete id="deleteEcu">
+        delete from ecu where id=#{id}
+    </delete>
+
+    <update id="updateEcu" parameterType="Ecu">
+        update ecu set name=#{name} where id=#{id}
+    </update>
+
+    <select id="listEcus" resultType="Ecu">
+        select * from ecu;
+    </select>
+
+    <select id="getEcuById" resultType="Ecu">
+        select * from ecu where id = #{id};
+    </select>
+    <update id="increaseEcuPower">
+        update ecu set power=power+1 where id=#{id}
+    </update>
+
+</mapper>

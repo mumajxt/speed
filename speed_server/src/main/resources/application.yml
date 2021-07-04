@@ -1,0 +1,31 @@
+# 服务器配置
+server:
+  port: 8088
+#  custom:
+#    #http监听端口
+#    httpPort: 80
+#  ssl:
+#    # SSL 证书路径，classpath 必不可少
+#    key-store: classpath:www.guofubang.top.jks
+#    # SSL 证书密码
+#    key-store-password: er4686gqyrn2
+#    # 证书类型
+#    key-store-type: JKS
+#    # 证书别名
+#    key-alias: www.guofubang.top
+
+
+# 数据库配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/speed?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+#     password: "3594139."
+    password: "root"
+# mybatis配置
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.jxt.dataspeed.pojo
+  configuration:
+    map-underscore-to-camel-case: true

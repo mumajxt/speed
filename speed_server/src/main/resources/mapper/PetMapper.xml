@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jxt.dataspeed.mapper.PetMapper">
+
+
+    <!-- Pet宠物 -->
+
+    <insert id="savePet" parameterType="Pet">
+        <selectKey keyProperty="id" resultType="java.lang.Integer" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+        insert into pet (name) values (#{name});
+    </insert>
+
+    <delete id="deletePet">
+        delete from pet where id=#{petId}
+    </delete>
+
+    <update id="updatePet" parameterType="Pet">
+        update pet set name=#{name} where id=#{id}
+    </update>
+
+    <select id="listPets" resultType="Pet">
+        select * from pet;
+    </select>
+
+    <select id="getPetById" resultType="Pet">
+        select * from pet where id = #{id};
+    </select>
+
+    <update id="increasePetPower">
+        update pet set power=power+1 where id=#{id}
+    </update>
+
+
+    <!-- PetSkin宠物皮肤 -->
+
+    <insert id="savePetSkin" parameterType="PetSkin">
+        <selectKey keyProperty="id" resultType="java.lang.Integer" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+        insert into pet_skin (name,pet_id) values (#{name},#{petId});
+    </insert>
+
+    <delete id="deletePetSkin">
+        delete from pet_skin where id=#{petSkinId}
+    </delete>
+
+    <update id="updatePetSkin" parameterType="PetSkin">
+        update pet_skin set name=#{name},pet_id=#{petId} where id=#{id}
+    </update>
+
+    <select id="listPetSkins" resultType="PetSkin">
+        select * from pet_skin;
+    </select>
+
+    <select id="listPetSkinsByPetId" resultType="PetSkin">
+        select * from pet_skin where pet_id = #{petId};
+    </select>
+
+    <select id="getPetSkinById" resultType="PetSkin">
+        select * from pet_skin where id = #{id};
+    </select>
+
+    <update id="increasePetSkinPower">
+        update pet_skin set power=power+1 where id=#{id}
+    </update>
+    
+
+</mapper>
