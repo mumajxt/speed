@@ -43,14 +43,15 @@
 
       <template v-slot:body>
         <div class="drawer-labels">
+          <div class="drawer-label-wrapper"><span class="drawer-label" @click="choseRank('T')" :class="{'active':car.rank=='T'}">T</span></div>
           <div class="drawer-label-wrapper"><span class="drawer-label" @click="choseRank('A')" :class="{'active':car.rank=='A'}">A</span></div>
           <div class="drawer-label-wrapper"><span class="drawer-label" @click="choseRank('B')" :class="{'active':car.rank=='B'}">B</span></div>
           <div class="drawer-label-wrapper"><span class="drawer-label" @click="choseRank('C')" :class="{'active':car.rank=='C'}">C</span></div>
           <div class="drawer-label-wrapper"><span class="drawer-label" @click="choseRank('D')" :class="{'active':car.rank=='D'}">D</span></div>
           <div class="drawer-label-wrapper"><span class="drawer-label" @click="choseRank('X')" :class="{'active':car.rank=='X'}">X</span></div>
-          <div class="drawer-label-wrapper"><span class="drawer-label" @click="choseRank('L1')" :class="{'active':car.rank=='L1'}">L1</span></div>
-          <div class="drawer-label-wrapper"><span class="drawer-label" @click="choseRank('M1')" :class="{'active':car.rank=='M1'}">M1</span></div>
-          <div class="drawer-label-wrapper"><span class="drawer-label" @click="choseRank('M2')" :class="{'active':car.rank=='M2'}">M2</span></div>
+<!--          <div class="drawer-label-wrapper"><span class="drawer-label" @click="choseRank('L1')" :class="{'active':car.rank=='L1'}">L1</span></div>-->
+<!--          <div class="drawer-label-wrapper"><span class="drawer-label" @click="choseRank('M1')" :class="{'active':car.rank=='M1'}">M1</span></div>-->
+<!--          <div class="drawer-label-wrapper"><span class="drawer-label" @click="choseRank('M2')" :class="{'active':car.rank=='M2'}">M2</span></div>-->
         </div>
       </template>
       <template v-slot:footer>

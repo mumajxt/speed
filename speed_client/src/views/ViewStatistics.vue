@@ -46,7 +46,7 @@
                 v-for="record in playerStatistic.records" 
                 :key="record.id"
                 @click="$emit('showDetail',record)">
-                  <div class="track_name" :class="record.track.isLeague?'':'grey'" v-text="record.track.name">地图</div>
+                  <div class="track_name"  v-text="record.track.name">地图</div>
                   <div class="time yellow"  v-text="record.time" :class="{'url':record.videoUrl}">记录</div>
                   <!-- <div class="player_name" v-text="record.player.name">车手</div> -->
                   <div class="car_name" v-text="record.car.name">赛车</div>
@@ -101,7 +101,7 @@
                 v-for="record in carStatistic.records" 
                 :key="record.id"
                 @click="$emit('showDetail',record)">
-                  <div class="track_name" :class="record.track.isLeague?'':'grey'" v-text="record.track.name">地图</div>
+                  <div class="track_name"  v-text="record.track.name">地图</div>
                   <div class="time yellow"  v-text="record.time" :class="{'url':record.videoUrl}">记录</div>
                   <div class="player_name" v-text="record.player.name">车手</div>
                   <!-- <div class="car_name" v-text="record.car.name">赛车</div> -->
@@ -156,7 +156,7 @@
                 v-for="record in petStatistic.records" 
                 :key="record.id"
                 @click="$emit('showDetail',record)">
-                  <div class="track_name" :class="record.track.isLeague?'':'grey'" v-text="record.track.name">地图</div>
+                  <div class="track_name"  v-text="record.track.name">地图</div>
                   <div class="time yellow"  v-text="record.time" :class="{'url':record.videoUrl}">记录</div>
                   <div class="player_name" v-text="record.player.name">车手</div>
                   <div class="car_name" v-text="record.car.name">赛车</div>
@@ -211,7 +211,7 @@
                 v-for="record in ecuStatistic.records" 
                 :key="record.id"
                 @click="$emit('showDetail',record)">
-                  <div class="track_name" :class="record.track.isLeague?'':'grey'" v-text="record.track.name">地图</div>
+                  <div class="track_name"  v-text="record.track.name">地图</div>
                   <div class="time yellow"  v-text="record.time" :class="{'url':record.videoUrl}">记录</div>
                   <div class="player_name" v-text="record.player.name">车手</div>
                   <div class="car_name" v-text="record.car.name">赛车</div>

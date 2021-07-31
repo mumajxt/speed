@@ -23,7 +23,7 @@
       v-for="record in news" 
       :key="record.id"
       @click="$emit('showDetail',record)">
-        <div class="track_name" :class="record.track.isLeague?'':'grey'" v-text="record.track.name">地图</div>
+        <div class="track_name"  v-text="record.track.name">地图</div>
         <div class="time yellow" v-text="record.time" :class="{'url':record.videoUrl}">记录</div>
         <div class="player_name" v-text="record.player.name">车手</div>
         <div class="car_name" v-text="record.car.name">赛车</div>
@@ -52,7 +52,7 @@
       v-for="record in s7s" 
       :key="record.id"
       @click="$emit('showDetail',record)">
-        <div class="track_name" :class="record.track.isLeague?'':'grey'" v-text="record.track.name">地图</div>
+        <div class="track_name"  v-text="record.track.name">地图</div>
         <div class="time yellow" v-text="record.time" :class="{'url':record.videoUrl}">记录</div>
         <div class="player_name" v-text="record.player.name">车手</div>
         <div class="car_name" v-text="record.car.name">赛车</div>
@@ -80,7 +80,7 @@
       v-for="record in s6s" 
       :key="record.id"
       @click="$emit('showDetail',record)">
-        <div class="track_name" :class="record.track.isLeague?'':'grey'" v-text="record.track.name">地图</div>
+        <div class="track_name"  v-text="record.track.name">地图</div>
         <div class="time yellow" v-text="record.time" :class="{'url':record.videoUrl}">记录</div>
         <div class="player_name" v-text="record.player.name">车手</div>
         <div class="car_name" v-text="record.car.name">赛车</div>
@@ -109,7 +109,7 @@
       v-for="record in s5s" 
       :key="record.id"
       @click="$emit('showDetail',record)">
-        <div class="track_name" :class="record.track.isLeague?'':'grey'" v-text="record.track.name">地图</div>
+        <div class="track_name"  v-text="record.track.name">地图</div>
         <div class="time yellow" v-text="record.time" :class="{'url':record.videoUrl}">记录</div>
         <div class="player_name" v-text="record.player.name">车手</div>
         <div class="car_name" v-text="record.car.name">赛车</div>
@@ -138,7 +138,7 @@
       v-for="record in s4s" 
       :key="record.id"
       @click="$emit('showDetail',record)">
-        <div class="track_name" :class="record.track.isLeague?'':'grey'" v-text="record.track.name">地图</div>
+        <div class="track_name"  v-text="record.track.name">地图</div>
         <div class="time yellow" v-text="record.time" :class="{'url':record.videoUrl}">记录</div>
         <div class="player_name" v-text="record.player.name">车手</div>
         <div class="car_name" v-text="record.car.name">赛车</div>
@@ -163,10 +163,10 @@
       </div>
       
       <div class="tr" 
-      v-for="record in s3s" 
+      v-for="record in s3s/*.filter(r => r.track.isLeague)*/"
       :key="record.id"
       @click="$emit('showDetail',record)">
-        <div class="track_name" :class="record.track.isLeague?'':'grey'" v-text="record.track.name">地图</div>
+        <div class="track_name"  v-text="record.track.name">地图</div>
         <div class="time yellow" v-text="record.time" :class="{'url':record.videoUrl}">记录</div>
         <div class="player_name" v-text="record.player.name">车手</div>
         <div class="car_name" v-text="record.car.name">赛车</div>
@@ -180,6 +180,27 @@
         </div>
         <div class="date" v-text="record.date">日期</div>
       </div>
+<!--      <div class="tr-title">-->
+<!--        <span>非联赛图</span>-->
+<!--      </div>-->
+<!--      <div class="tr"-->
+<!--           v-for="record in s3s.filter(r => !r.track.isLeague)"-->
+<!--           :key="record.id"-->
+<!--           @click="$emit('showDetail',record)">-->
+<!--        <div class="track_name"  v-text="record.track.name">地图</div>-->
+<!--        <div class="time yellow" v-text="record.time" :class="{'url':record.videoUrl}">记录</div>-->
+<!--        <div class="player_name" v-text="record.player.name">车手</div>-->
+<!--        <div class="car_name" v-text="record.car.name">赛车</div>-->
+<!--        <div class="pet_name">-->
+<!--          <span v-if="record.pet" v-text="record.pet.name"></span>-->
+<!--          <span v-else class="grey2">无宠</span>-->
+<!--        </div>-->
+<!--        <div class="ecu_name">-->
+<!--          <span v-if="record.ecu" v-text="record.ecu.name"></span>-->
+<!--          <span v-else class="grey2">无E</span>-->
+<!--        </div>-->
+<!--        <div class="date" v-text="record.date">日期</div>-->
+<!--      </div>-->
     </div>
 
 
@@ -194,7 +215,7 @@
       v-for="record in s2s" 
       :key="record.id"
       @click="$emit('showDetail',record)">
-        <div class="track_name" :class="record.track.isLeague?'':'grey'" v-text="record.track.name">地图</div>
+        <div class="track_name"  v-text="record.track.name">地图</div>
         <div class="time yellow" v-text="record.time" :class="{'url':record.videoUrl}">记录</div>
         <div class="player_name" v-text="record.player.name">车手</div>
         <div class="car_name" v-text="record.car.name">赛车</div>
@@ -222,7 +243,7 @@
       v-for="record in s1s" 
       :key="record.id"
       @click="$emit('showDetail',record)">
-        <div class="track_name" :class="record.track.isLeague?'':'grey'" v-text="record.track.name">地图</div>
+        <div class="track_name"  v-text="record.track.name">地图</div>
         <div class="time yellow" v-text="record.time" :class="{'url':record.videoUrl}">记录</div>
         <div class="player_name" v-text="record.player.name">车手</div>
         <div class="car_name" v-text="record.car.name">赛车</div>
@@ -250,7 +271,7 @@
       v-for="record in s99s" 
       :key="record.id"
       @click="$emit('showDetail',record)">
-        <div class="track_name" :class="record.track.isLeague?'':'grey'" v-text="record.track.name">地图</div>
+        <div class="track_name"  v-text="record.track.name">地图</div>
         <div class="time yellow" v-text="record.time" :class="{'url':record.videoUrl}">记录</div>
         <div class="player_name" v-text="record.player.name">车手</div>
         <div class="car_name" v-text="record.car.name">赛车</div>
@@ -278,7 +299,7 @@
       v-for="record in seas" 
       :key="record.id"
       @click="$emit('showDetail',record)">
-        <div class="track_name" :class="record.track.isLeague?'':'grey'" v-text="record.track.name">地图</div>
+        <div class="track_name"  v-text="record.track.name">地图</div>
         <div class="time yellow" v-text="record.time" :class="{'url':record.videoUrl}">记录</div>
         <div class="player_name" v-text="record.player.name">车手</div>
         <div class="car_name" v-text="record.car.name">赛车</div>
@@ -305,7 +326,7 @@
       v-for="record in olds" 
       :key="record.id"
       @click="$emit('showDetail',record)">
-        <div class="track_name" :class="record.track.isLeague?'':'grey'" v-text="record.track.name">地图</div>
+        <div class="track_name"  v-text="record.track.name">地图</div>
         <div class="time yellow" v-text="record.time" :class="{'url':record.videoUrl}">记录</div>
         <div class="player_name" v-text="record.player.name">车手</div>
         <div class="car_name" v-text="record.car.name">赛车</div>

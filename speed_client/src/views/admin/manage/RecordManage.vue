@@ -31,6 +31,10 @@
               <span>全部</span>
               <!-- <span class="count" v-text="recordsAll.length"></span> -->
             </div>
+            <div @click="linkToType('t')" class="btn-sm btn-label nav2-item" :class="type=='t'?'btn-label-yellow bold':''" >
+              <span>T车</span>
+              <!-- <span class="count" v-text="as.length"></span> -->
+            </div>
             <div @click="linkToType('a')" class="btn-sm btn-label nav2-item" :class="type=='a'?'btn-label-yellow bold':''" >
               <span>A车</span>
               <!-- <span class="count" v-text="as.length"></span> -->
@@ -55,18 +59,18 @@
               <span>D车</span>
               <!-- <span class="count" v-text="ds.length"></span> -->
             </div>
-            <div @click="linkToType('l1')" class="btn-sm btn-label nav2-item" :class="type=='l1'?'btn-label-yellow':''">
-              <span>L1滑板</span>
-              <!-- <span class="count" v-text="l1s.length"></span> -->
-            </div>
-            <div @click="linkToType('m1')" class="btn-sm btn-label nav2-item" :class="type=='m1'?'btn-label-yellow':''">
-              <span>M1摩托</span>
-              <!-- <span class="count" v-text="m1s.length"></span> -->
-            </div>
-            <div @click="linkToType('m2')" class="btn-sm btn-label nav2-item" :class="type=='m2'?'btn-label-yellow':''">
-              <span>M2摩托</span>
-              <!-- <span class="count" v-text="m2s.length"></span> -->
-            </div>
+<!--            <div @click="linkToType('l1')" class="btn-sm btn-label nav2-item" :class="type=='l1'?'btn-label-yellow':''">-->
+<!--              <span>L1滑板</span>-->
+<!--              &lt;!&ndash; <span class="count" v-text="l1s.length"></span> &ndash;&gt;-->
+<!--            </div>-->
+<!--            <div @click="linkToType('m1')" class="btn-sm btn-label nav2-item" :class="type=='m1'?'btn-label-yellow':''">-->
+<!--              <span>M1摩托</span>-->
+<!--              &lt;!&ndash; <span class="count" v-text="m1s.length"></span> &ndash;&gt;-->
+<!--            </div>-->
+<!--            <div @click="linkToType('m2')" class="btn-sm btn-label nav2-item" :class="type=='m2'?'btn-label-yellow':''">-->
+<!--              <span>M2摩托</span>-->
+<!--              &lt;!&ndash; <span class="count" v-text="m2s.length"></span> &ndash;&gt;-->
+<!--            </div>-->
             <div @click="linkToType('sCup')" class="btn-sm btn-label nav2-item" :class="type=='sCup'?'btn-label-yellow':''">
               <span>S联赛</span>
               <!-- <span class="count" v-text="sCups.length"></span> -->

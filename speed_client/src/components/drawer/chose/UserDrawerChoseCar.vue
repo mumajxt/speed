@@ -21,6 +21,11 @@
               @click="navSelectedItem='all'">
               全部<span class="count" v-text="carsAll.length"></span>
             </div>
+            <div class="nav-item" v-if="ts.length"
+                 :class="navSelectedItem=='t'?'nav-item-selected':''"
+                 @click="navSelectedItem='t'">
+              T<span class="count" v-text="ts.length"></span>
+            </div>
             <div class="nav-item" v-if="as.length"
               :class="navSelectedItem=='a'?'nav-item-selected':''"
               @click="navSelectedItem='a'">
@@ -46,21 +51,21 @@
               @click="navSelectedItem='x'">
               X<span class="count" v-text="xs.length"></span>
             </div>
-            <div class="nav-item" v-if="l1s.length"
-              :class="navSelectedItem=='l1'?'nav-item-selected':''"
-              @click="navSelectedItem='l1'">
-              L1<span class="count" v-text="l1s.length"></span>
-            </div>
-            <div class="nav-item" v-if="m1s.length"
-              :class="navSelectedItem=='m1'?'nav-item-selected':''"
-              @click="navSelectedItem='m1'">
-              M1<span class="count" v-text="m1s.length"></span>
-            </div>
-            <div class="nav-item" v-if="m2s.length"
-              :class="navSelectedItem=='m2'?'nav-item-selected':''"
-              @click="navSelectedItem='m2'">
-              M2<span class="count" v-text="m2s.length"></span>
-            </div>
+<!--            <div class="nav-item" v-if="l1s.length"-->
+<!--              :class="navSelectedItem=='l1'?'nav-item-selected':''"-->
+<!--              @click="navSelectedItem='l1'">-->
+<!--              L1<span class="count" v-text="l1s.length"></span>-->
+<!--            </div>-->
+<!--            <div class="nav-item" v-if="m1s.length"-->
+<!--              :class="navSelectedItem=='m1'?'nav-item-selected':''"-->
+<!--              @click="navSelectedItem='m1'">-->
+<!--              M1<span class="count" v-text="m1s.length"></span>-->
+<!--            </div>-->
+<!--            <div class="nav-item" v-if="m2s.length"-->
+<!--              :class="navSelectedItem=='m2'?'nav-item-selected':''"-->
+<!--              @click="navSelectedItem='m2'">-->
+<!--              M2<span class="count" v-text="m2s.length"></span>-->
+<!--            </div>-->
           </div>
           <div class="right cars">
             <span class="label btn btn-label"
@@ -118,6 +123,7 @@ export default {
       tempCars(){
         switch(this.navSelectedItem){
           case 'all':return this.carsAll;
+          case 't':return this.ts;
           case 'a':return this.as;
           case 'b':return this.bs;
           case 'c':return this.cs;
@@ -128,6 +134,10 @@ export default {
           case 'm2':return this.m2s;
           default:return [];
         }
+      },
+     ts(){
+        return this.carsAll
+            .filter(car=>car.rank=='T');
       },
       as(){
         return this.carsAll
@@ -226,7 +236,7 @@ export default {
         display: flex;
         .left{
           overflow-y: auto;
-          height: 21.6rem;
+          height: 16.2rem;
           .nav-item{
             height: 2.4rem;
             line-height: 2.4rem;
@@ -248,7 +258,7 @@ export default {
         .right{
           flex: 1;
           padding: 0.5rem;
-          height: 21.6rem;
+          height: 16.2rem;
           overflow-y: auto;
           .label{
             margin-right: 0.5rem;

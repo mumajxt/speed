@@ -61,9 +61,6 @@
               <span class="statistics" @click="linkToView('statistics')" :class="{'active':view=='statistics'}">统计</span>
               <span class="new" @click="linkToView('new');" :class="{'active':view=='new'}">历史</span>
           </div>
-          <!-- <div class="blank"></div> -->
-          
-          <!-- <span v-show="view=='default'" class="select icon iconfont iconmore" @click="trackDrawer=true"></span> -->
       </div>
 
       <!-- 默认分类的记录 -->
@@ -110,8 +107,6 @@
       </p>
       <span v-else>暂未收录任何记录，请选择其他类型~</span>
     </div>
-      
-
     </div>
     
 
@@ -121,7 +116,8 @@
          <!-- posts -->
         <div id="post" class="card">
           <p>
-            暂无公告~
+            <span class="green">●</span>
+            8月1日起收录T级赛车计时
           </p>
           <router-link to="/rank/about" class="btn btn-yellow bold">
             <span>我要投稿</span>
@@ -255,6 +251,7 @@ export default {
     typeCH(){
       switch(this.type){
         case 'all':return '不限';
+        case 't':return 'T车';
         case 'a':return 'A车';
         case 'b':return 'B车';
         case 'c':return 'C车';

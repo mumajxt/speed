@@ -23,9 +23,14 @@
               @click="navSelectedItem='all'">
               全部<span class="count" v-text="carsAll.length"></span>
             </div>
+            <div class="nav-item" v-if="ts.length"
+              :class="navSelectedItem=='t'?'nav-item-selected':''"
+              @click="navSelectedItem='t'">
+              T<span class="count" v-text="ts.length"></span>
+            </div>
             <div class="nav-item" v-if="as.length"
-              :class="navSelectedItem=='a'?'nav-item-selected':''"
-              @click="navSelectedItem='a'">
+                 :class="navSelectedItem=='a'?'nav-item-selected':''"
+                 @click="navSelectedItem='a'">
               A<span class="count" v-text="as.length"></span>
             </div>
             <div class="nav-item" v-if="bs.length"
@@ -48,7 +53,7 @@
               @click="navSelectedItem='x'">
               X<span class="count" v-text="xs.length"></span>
             </div>
-            <div class="nav-item" v-if="l1s.length"
+<!--            <div class="nav-item" v-if="l1s.length"
               :class="navSelectedItem=='l1'?'nav-item-selected':''"
               @click="navSelectedItem='l1'">
               L1<span class="count" v-text="l1s.length"></span>
@@ -62,7 +67,7 @@
               :class="navSelectedItem=='m2'?'nav-item-selected':''"
               @click="navSelectedItem='m2'">
               M2<span class="count" v-text="m2s.length"></span>
-            </div>
+            </div>-->
           </div>
           <div class="right cars">
             <span class="label btn btn-label"
@@ -124,6 +129,7 @@ export default {
       tempCars(){
         switch(this.navSelectedItem){
           case 'all':return this.carsAll;
+          case 't':return this.ts;
           case 'a':return this.as;
           case 'b':return this.bs;
           case 'c':return this.cs;
@@ -137,6 +143,7 @@ export default {
       },
       carRankList(){
         switch(this.typeOut){
+          case 't':return ['T'];
           case 'a':return ['A'];
           case 'b':return ['B'];
           case 'c':return ['C'];
@@ -148,8 +155,12 @@ export default {
           case 'undrift':return ['A','X'];
           case 'sCup':return ['A'];
           case 'asiaCup':return ['A'];
-          default:return ['A','B','C','D','X','L1','M1','M2'];
+          default:return ['T','A','B','C','D','X','L1','M1','M2'];
         }
+      },
+      ts(){
+        return this.carsAll
+            .filter(car=>car.rank=='T');
       },
       as(){
         return this.carsAll
@@ -288,7 +299,7 @@ export default {
         display: flex;
         .left{
           overflow-y: auto;
-          height: 21.6rem;
+          height: 16.8rem;
           .nav-item{
             height: 2.4rem;
             line-height: 2.4rem;
@@ -310,7 +321,7 @@ export default {
         .right{
           flex: 1;
           padding: 0.5rem;
-          height: 21.6rem;
+          height: 16.8rem;
           overflow-y: auto;
           .label{
             margin-right: 0.5rem;

@@ -2,6 +2,7 @@
 <div id="donate">
   <div class="content card">
     <img :src="url" alt="微信支付">
+    <p class="wechat">感谢各位的支持与理解，捐赠将用于网站服务器的开销</p>
     <p class="wechat"><span class="icon iconfont iconweixin"></span>微信扫码（显示昵称请备注，谢谢支持~）</p>
   </div>
   <div class="list card">
@@ -138,6 +139,7 @@ export default {
     .wechat {
       font-size: 1rem;
       color: @c2;
+      line-height: 2;
       .icon {
         color: @c_green;
         font-size: 1rem;

@@ -315,6 +315,7 @@ export default {
     computed: {
       typeCH(){
         switch(this.record.type){
+          case 't':return 'T车';
           case 'a':return 'A车';
           case 'x':return 'X悬浮车';
           case 'undrift':return 'A车(抓地)';

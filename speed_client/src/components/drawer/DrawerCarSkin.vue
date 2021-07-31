@@ -54,9 +54,12 @@ export default {
       
     },
     watch: {
-      carOut:function(val){
-        this.carSkin.car=val;
-      },
+      // carOut:{
+      //   immediate: true,
+      //   handler(value){
+      //     this.carSkin.car=value;
+      //   }
+      // },
       carSkinOut: {
         immediate: true,
         handler(value) {
@@ -66,7 +69,7 @@ export default {
             this.carSkin={
               id:'',
               name:'',
-              car:null
+              car: this.carOut
             }
           }
         },

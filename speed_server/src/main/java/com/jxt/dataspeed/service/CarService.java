@@ -165,6 +165,7 @@ public class CarService {
     String getLabel(String carRank){
         String label;
         switch (carRank){
+            case "T":label="T车";break;
             case "A":label="A车";break;
             case "B":label="B车";break;
             case "C":label="C车";break;

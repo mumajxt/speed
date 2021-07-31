@@ -9,6 +9,9 @@
             <div class="drawer-label-wrapper" v-if="isShowAll">
               <span class="drawer-label" :class="{'active':typeOut=='all'}" @click="choseRecordType('all')">不限</span>
             </div>
+          <div class="drawer-label-wrapper">
+            <span class="drawer-label" :class="{'active':typeOut=='t'}" @click="choseRecordType('t')">T车</span>
+          </div>
             <div class="drawer-label-wrapper">
               <span class="drawer-label" :class="{'active':typeOut=='a'}" @click="choseRecordType('a')">A车</span>
             </div>
@@ -27,15 +30,15 @@
             <div class="drawer-label-wrapper">
               <span class="drawer-label" :class="{'active':typeOut=='d'}" @click="choseRecordType('d')">D车</span>
             </div>
-            <div class="drawer-label-wrapper">
-              <span class="drawer-label" :class="{'active':typeOut=='l1'}" @click="choseRecordType('l1')">L1滑板</span>
-            </div>
-            <div class="drawer-label-wrapper">
-              <span class="drawer-label" :class="{'active':typeOut=='m1'}" @click="choseRecordType('m1')">M1摩托</span>
-            </div>
-            <div class="drawer-label-wrapper">
-              <span class="drawer-label" :class="{'active':typeOut=='m2'}" @click="choseRecordType('m2')">M2摩托</span>
-            </div>
+<!--            <div class="drawer-label-wrapper">-->
+<!--              <span class="drawer-label" :class="{'active':typeOut=='l1'}" @click="choseRecordType('l1')">L1滑板</span>-->
+<!--            </div>-->
+<!--            <div class="drawer-label-wrapper">-->
+<!--              <span class="drawer-label" :class="{'active':typeOut=='m1'}" @click="choseRecordType('m1')">M1摩托</span>-->
+<!--            </div>-->
+<!--            <div class="drawer-label-wrapper">-->
+<!--              <span class="drawer-label" :class="{'active':typeOut=='m2'}" @click="choseRecordType('m2')">M2摩托</span>-->
+<!--            </div>-->
           </div>
 
 

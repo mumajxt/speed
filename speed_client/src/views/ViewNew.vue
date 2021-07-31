@@ -68,7 +68,7 @@
         v-for="record in records" 
         :key="record.id"
         @click="$emit('showDetail',record)">
-          <div class="track_name" :class="record.track.isLeague?'':'grey'" v-text="record.track.name">地图</div>
+          <div class="track_name"  v-text="record.track.name">地图</div>
           <div class="time" 
           :class="record.isIn?'yellow':'grey'">
             <span v-text="record.time"  :class="{'url':record.videoUrl}"></span>

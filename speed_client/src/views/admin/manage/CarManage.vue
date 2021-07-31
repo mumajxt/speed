@@ -33,6 +33,10 @@
             <span>全部</span>
             <span class="count" v-text="carsAll.length"></span>
           </div>
+          <div class="btn-sm btn-label nav2-item" :class="nav2CarSelectedItem=='ts'?'btn-label-yellow bold':'btn-grey'" @click="nav2CarSelectedItem='ts'">
+            <span>T</span>
+            <span class="count" v-text="ts.length"></span>
+          </div>
           <div class="btn-sm btn-label nav2-item" :class="nav2CarSelectedItem=='as'?'btn-label-yellow bold':'btn-grey'" @click="nav2CarSelectedItem='as'">
             <span>A</span>
             <span class="count" v-text="as.length"></span>
@@ -53,7 +57,7 @@
             <span>X</span>
             <span class="count" v-text="xs.length"></span>
           </div>
-          <div class="btn-sm btn-label nav2-item" :class="nav2CarSelectedItem=='l1s'?'btn-label-yellow':'btn-grey'"  @click="nav2CarSelectedItem='l1s'">
+<!--          <div class="btn-sm btn-label nav2-item" :class="nav2CarSelectedItem=='l1s'?'btn-label-yellow':'btn-grey'"  @click="nav2CarSelectedItem='l1s'">
             <span>L1</span>
             <span class="count" v-text="l1s.length"></span>
           </div>
@@ -64,7 +68,7 @@
           <div class="btn-sm btn-label nav2-item" :class="nav2CarSelectedItem=='m2s'?'btn-label-yellow':'btn-grey'"  @click="nav2CarSelectedItem='m2s'">
             <span>M2</span>
             <span class="count" v-text="m2s.length"></span>
-          </div>
+          </div>-->
         </div>
 
         <div class="nav2-skin  nav2-items" v-if="nav1SelectedItem=='skin'">
@@ -183,6 +187,7 @@ export default {
       tempCars(){
         switch(this.nav2CarSelectedItem){
           case 'all':return this.carsAll;
+          case 'ts':return this.ts;
           case 'as':return this.as;
           case 'bs':return this.bs;
           case 'cs':return this.cs;
@@ -197,9 +202,13 @@ export default {
       tempSkins(){
         return this.skins;
       },
+      ts(){
+        return this.carsAll
+        .filter(car=>car.rank=='T');
+      },
       as(){
         return this.carsAll
-        .filter(car=>car.rank=='A');
+            .filter(car=>car.rank=='A');
       },
       bs(){
         return this.carsAll
