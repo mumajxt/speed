@@ -128,7 +128,7 @@ export default {
     name: "petManage",
     components: {
       DrawerPet:() => import('@/components/drawer/DrawerPet'),
-      DrawerPetSkinK:() => import('@/components/drawer/DrawerPetSkin')
+      DrawerPetSkin:() => import('@/components/drawer/DrawerPetSkin')
     },
     mounted(){
       this.listPets();

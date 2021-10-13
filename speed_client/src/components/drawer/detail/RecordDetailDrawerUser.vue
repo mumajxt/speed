@@ -126,6 +126,7 @@ export default {
     computed: {
       rankCH(){
         switch(this.record.type){
+          case 't':return 'T车' + (this.record.pet?'有宠':'无宠') + (this.record.ecu?'有E':'无E');
           case 'a':return 'A车' + (this.record.pet?'有宠':'无宠') + (this.record.ecu?'有E':'无E');
           case 'b':return 'B车'+(this.record.pet?'有宠':'无宠') +(this.record.ecu?'有E':'无E');
           case 'c':return 'C车'+(this.record.pet?'有宠':'无宠') +(this.record.ecu?'有E':'无E');

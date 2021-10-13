@@ -33,7 +33,7 @@
     </div>
 
 
-    <DrawerChosePet :visible.sync="isShowDrawerChosePet" @close="isShowDrawerChosePet=false" @chosePet="chosePet"></DrawerChosePet>
+    <DrawerChosePet v-if="isShowDrawerChosePet" @close="isShowDrawerChosePet=false" @chosePet="chosePet"></DrawerChosePet>
   
   </div>
 </template>
@@ -54,9 +54,9 @@ export default {
       
     },
     watch: {
-      petOut:function(val){
-        this.petSkin.pet=val;
-      },
+      // petOut:function(val){
+      //   this.petSkin.pet=val;
+      // },
       petSkinOut: {
         immediate: true,
         handler(value) {
@@ -66,7 +66,7 @@ export default {
             this.petSkin={
               id:'',
               name:'',
-              pet:null
+              pet: this.petOut,
             }
           }
         },
@@ -98,7 +98,10 @@ export default {
     },
     methods: {
       close(){
-        this.$emit('close');
+        this.visible=false;
+        setTimeout(()=>{
+          this.$emit('close');
+        },300);
       },
       chosePet(pet){
         this.petSkin.pet=pet;

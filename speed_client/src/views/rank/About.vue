@@ -18,14 +18,14 @@
         <h3>数据支持</h3>
       </div>
       <div class="content">
-        <p><a href="https://space.bilibili.com/487546810/dynamic" target="_blank">@某q的冬瓜</a>（A车有宠带ecu榜）</p>
-        <p><a href="https://space.bilibili.com/390629619/dynamic" target="_blank">@purple紫灵</a>（A车有宠无ecu、A车无宠带ecu、A车无宠无ecu榜）</p>
+        <p><a href="https://space.bilibili.com/390629619/dynamic" target="_blank">@purple紫灵</a>（T车、A车榜）</p>
         <p><a href="https://space.bilibili.com/436508261/dynamic" target="_blank">@易成yc</a>（B车榜）</p>
         <p><a href="https://space.bilibili.com/157342682/dynamic" target="_blank">@黑桥宝宝</a>（C车、板车榜）</p>
         <p><a href="https://space.bilibili.com/452006583/dynamic" target="_blank">@無欣不欢</a>（悬浮榜）</p>
         <p><a href="https://space.bilibili.com/150405895/dynamic" target="_blank">@Chanlq</a>（联赛榜）</p>
         <p><a href="https://space.bilibili.com/43717434/dynamic" target="_blank">@胖胖胖胖胖溢</a>（亚洲杯榜）</p>
         <p><a href="https://space.bilibili.com/85907356/dynamic" target="_blank">@DBG_呵呵</a>（鸽子榜（bushi) 前联赛榜）</p>
+        <p><a href="https://space.bilibili.com/487546810/dynamic" target="_blank">@某q的冬瓜</a>（前A车有宠带ecu榜）</p>
         <p><a href="https://space.bilibili.com/305762820/dynamic" target="_blank">@暴风西决</a>（精神支持）</p>
       </div>
     </div>
